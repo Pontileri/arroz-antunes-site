@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arroz Antunes | Beneficiamento de Arroz</title>
+  <meta name="description" content="Site institucional da Arroz Antunes. Beneficiamento de arroz com qualidade, confiança e tradição." />
+  <link rel="icon" type="image/png" href="Logo Arroz Antunes.png" />
+  <link rel="shortcut icon" type="image/png" href="Logo Arroz Antunes.png" />
+  <style>
+    :root {
+      --bg: #f5f8fc;
+      --card: #ffffff;
+      --text: #17304d;
+      --muted: #5d6f84;
+      --primary: #1e88e5;
+      --primary-dark: #145ea8;
+      --accent: #d62828;
+      --border: #dbe6f2;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .brand-image {
+      height: 46px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: none;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .menu {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.98rem;
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .25s ease;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .2s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-outline {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .hero {
+      padding: 72px 0 42px;
+      background: linear-gradient(180deg, #eef6ee 0%, #f7f9f7 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #e8f2fd;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; }
+    h1 { font-size: clamp(2rem, 4vw, 3.4rem); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual {
+      min-height: 360px;
+      background:
+        linear-gradient(rgba(20,94,168,.68), rgba(214,40,40,.62)),
+        url('Empresa .jpeg') center/cover;
+      border-radius: 28px;
+      color: white;
+      display: flex;
+      align-items: end;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    section { padding: 64px 0; }
+
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .product-card:hover,
+    .brand-card:hover,
+    .card:hover,
+    .rep-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.10);
+    }
+
+    .product-card img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+      padding: 10px;
+    }
+
+    .product-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .product-card .product-action {
+      margin-top: auto;
+    }
+
+    .btn-product {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 11px 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      background: var(--primary);
+      color: white;
+      transition: .2s ease;
+    }
+
+    .btn-product:hover {
+      background: var(--primary-dark);
+    }
+
+    .representatives-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .rep-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .rep-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .rep-card p {
+      margin: 8px 0;
+      color: var(--muted);
+    }
+
+    .location-frame {
+      padding: 12px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .location-frame iframe {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      border-radius: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #edf4fb;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: #f4f8fd;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .brand-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 160px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .brand-card img {
+      max-width: 100%;
+      max-height: 90px;
+      object-fit: contain;
+      display: block;
+      filter: saturate(1.05);
+      transition: transform .25s ease;
+    }
+
+    .brand-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .brand-card h3 {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .whats-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      box-shadow: 0 14px 28px rgba(37, 211, 102, .38);
+      font-size: 1.5rem;
+      z-index: 99;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 16px;
+      color: var(--primary-dark);
+    }
+
+    .contact-highlight {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #edf4fb;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .contact-mini {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .contact-list a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .cta-band {
+      background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+      color: white;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cta-band p {
+      margin: 0;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 18px;
+    }
+
+    .gallery-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 220px;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-soft {
+      background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .about, .contact-grid, .cards, .brands-grid, .representatives-grid, .gallery-grid, .cta-band {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 0;
+      }
+
+      .brand-image {
+        height: 42px;
+      }
+
+      .menu {
+        gap: 12px;
+        justify-content: flex-start;
+      }
+
+      .menu a {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <img class="brand-image" src="Logo Arroz Antunes.png" alt="Arroz Antunes" />
+        <span class="brand-text">Arroz Antunes</span>
+      </a>
+      <nav class="menu">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#marcas">Nossas marcas</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#empresa">Empresa</a>
+        <a href="#localizacao">Mapa</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#representantes">Representantes</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">Qualidade, confiança e tradição em Iguatu-CE</span>
+          <h1>Beneficiamento de arroz com foco em excelência</h1>
+          <p class="lead">
+            A Arroz Antunes atua com compromisso, organização e cuidado em cada etapa do processo, oferecendo atendimento sério, produção voltada para qualidade e uma presença forte na região de Iguatu-CE.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contato">Falar conosco</a>
+            <a class="btn btn-outline" href="#empresa">Conhecer a empresa</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-visual">
+            <div>
+              <strong>Produção responsável</strong>
+              <span>Estrutura voltada ao beneficiamento de arroz com atenção ao padrão, armazenamento e atendimento.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <h2>O que fazemos</h2>
+          <p class="lead">A Arroz Antunes atua no beneficiamento e distribuição de arroz, atendendo mercados, distribuidores e estabelecimentos comerciais em diversas regiões do Ceará.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">🌾</div>
+            <h3>Beneficiamento de arroz</h3>
+            <p>Processo de beneficiamento focado em qualidade e padronização dos grãos, garantindo um produto final adequado para consumo e comercialização.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📦</div>
+            <h3>Distribuição regional</h3>
+            <p>Distribuição de diferentes marcas e tipos de arroz para mercados, mercearias, supermercados e distribuidores em várias cidades do Ceará.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🏪</div>
+            <h3>Atendimento ao comércio</h3>
+            <p>Atendimento voltado para o comércio varejista e atacadista, com suporte de representantes comerciais em diversas regiões.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="marcas">
+      <div class="container">
+        <div class="section-head">
+          <h2>Nossas marcas</h2>
+          <p class="lead">A Arroz Antunes trabalha com marcas próprias que reforçam a presença da empresa no mercado, cada uma com sua identidade visual e proposta.</p>
+        </div>
+        <div class="brands-grid">
+          <article class="brand-card">
+  <img src="Logo Arroz Antunes.png" alt="Arroz Antunes" />
+</article>
+
+<article class="brand-card">
+  <img src="logo amoroso new png.png" alt="Arroz Amoroso" />
+</article>
+
+<article class="brand-card">
+  <img src="logo caseiro new.png" alt="Arroz Caseiro" />
+</article>
+
+<article class="brand-card">
+  <img src="NOVA LOGO - ARROZ ITAPIUNA.png" alt="Arroz Itapiuna" />
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section id="empresa">
+      <div class="container about">
+        <div class="about-box">
+          <h2>Sobre a Arroz Antunes</h2>
+          <p><strong>NOSSA EMPRESA</strong><br>
+            A Arroz Antunes atua no beneficiamento e distribuição de arroz, levando qualidade e confiança para clientes e parceiros em diversas regiões do Ceará.
+          </p>
+          <p>
+            Localizada em Iguatu – CE, a empresa trabalha com diferentes marcas e produtos, atendendo tanto o mercado varejista quanto o mercado atacadista.
+          </p>
+          <p>
+            Com tradição e compromisso com a qualidade, a empresa busca oferecer sempre produtos que atendam às necessidades de seus clientes.
+          </p>
+        </div>
+        <div class="about-box">
+          <h3>Compromisso com qualidade</h3>
+          <p>
+            A Arroz Antunes atende o mercado varejista e atacadista com foco em qualidade, confiança e regularidade no fornecimento.
+          </p>
+          <p>
+            Com marcas próprias e atuação em diversas regiões do Ceará, a empresa busca manter um atendimento próximo, produtos bem apresentados e compromisso com seus parceiros comerciais.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <strong>Iguatu-CE</strong>
+              <span>Base operacional da empresa</span>
+            </div>
+            <div class="stat">
+              <strong>Varejo</strong>
+              <span>Atendimento ao comércio regional</span>
+            </div>
+            <div class="stat">
+              <strong>Atacado</strong>
+              <span>Distribuição para maior volume</span>
+            </div>
+            <div class="stat">
+              <strong>Ceará</strong>
+              <span>Presença em várias regiões</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Conheça nossos produtos</h2>
+          <p class="lead">A Arroz Antunes oferece diferentes marcas e tipos de arroz, atendendo tanto o consumo diário das famílias quanto o mercado comercial e atacadista.</p>
+        </div>
+        <div class="cards">
+
+          <article class="product-card">
+            <img src="Antunes Branco 1kg Frente.png" alt="Arroz Antunes Tipo 01" />
+            <h3>Arroz Antunes Tipo 01</h3>
+            <p>Arroz selecionado com alto padrão de qualidade, ideal para o consumo diário das famílias brasileiras.</p>
+            <div class="product-action">
+              <a class="btn-product" href="https://wa.me/message/FG67FM3776U4G1?text=Olá!%20Tenho%20interesse%20no%20Arroz%20Antunes%20Tipo%2001." target="_blank">Quero este produto</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="Antunes Parboilizado 1kg Frente.png" alt="Arroz Antunes Parboilizado Tipo 01" />
+            <h3>Arroz Antunes Parboilizado Tipo 01</h3>
+            <p>Arroz beneficiado pelo processo de parboilização, preservando nutrientes e garantindo grãos mais firmes e soltos.</p>
+            <div class="product-action">
+              <a class="btn-product" href="https://wa.me/message/FG67FM3776U4G1?text=Olá!%20Tenho%20interesse%20no%20Arroz%20Antunes%20Parboilizado%20Tipo%2001." target="_blank">Quero este produto</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="Caseiro 1kg Frente.png" alt="Arroz Caseiro Tipo 02" />
+            <h3>Arroz Caseiro Tipo 02</h3>
+            <p>Produto com excelente custo-benefício, muito presente no comércio regional.</p>
+            <div class="product-action">
+              <a class="btn-product" href="https://wa.me/message/FG67FM3776U4G1?text=Olá!%20Tenho%20interesse%20no%20Arroz%20Caseiro%20Tipo%2002." target="_blank">Quero este produto</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="Arroz Amoroso 1kg frente.png" alt="Arroz Amoroso Tipo 03" />
+            <h3>Arroz Amoroso Tipo 03</h3>
+            <p>Opção econômica mantendo a qualidade do beneficiamento Arroz Antunes.</p>
+            <div class="product-action">
+              <a class="btn-product" href="https://wa.me/message/FG67FM3776U4G1?text=Olá!%20Tenho%20interesse%20no%20Arroz%20Amoroso%20Tipo%2003." target="_blank">Quero este produto</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="Itapiuna.png" alt="Arroz Itapiúna Fora de Tipo" />
+            <h3>Arroz Itapiúna Fora de Tipo</h3>
+            <p>Produto voltado para mercados, distribuidores e estabelecimentos que buscam uma opção econômica para vendas em maior volume e uso comercial.</p>
+            <div class="product-action">
+              <a class="btn-product" href="https://wa.me/message/FG67FM3776U4G1?text=Olá!%20Tenho%20interesse%20no%20Arroz%20Itapiúna%20Fora%20de%20Tipo." target="_blank">Quero este produto</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="representantes">
+      <div class="container">
+        <div class="section-head">
+          <h2>Representantes comerciais</h2>
+          <p class="lead">Nossos representantes comerciais atuam em diversas regiões do Ceará, garantindo atendimento próximo e suporte aos clientes.</p>
+        </div>
+        <div class="representatives-grid">
+          <article class="rep-card">
+            <h3>Balduino</h3>
+            <p><strong>Empresa:</strong> Balduino &amp; Silva Representações Ltda.</p>
+            <p><strong>Região de atendimento:</strong> Centro de Iguatu – CE.</p>
+          </article>
+          <article class="rep-card">
+            <h3>Ocelio</h3>
+            <p><strong>Empresa:</strong> Luiz Ocelio Alves Representação Ltda - ME</p>
+            <p><strong>Região de atendimento:</strong> Acopiara, Piquet Carneiro, Mombaça, Milhã, Pedra Branca, Senador Pompeu, Catarina, Parambu, Quiterianópolis, Orós, São Miguel, Feiticeiro, Pereiro e Arneirós.</p>
+          </article>
+          <article class="rep-card">
+            <h3>Gomes</h3>
+            <p><strong>Empresa:</strong> J. Gomes da Silva &amp; CIA Ltda.</p>
+            <p><strong>Região de atendimento:</strong> Iracema, Ererê, Alto Santo, Jaguaretama, Jaguaribara, Crateús, Tianguá, Viçosa do Ceará, Canindé, Boa Viagem, Quixadá, Quixeramobim, Itapiúna, Capistrano e Solonópole.</p>
+          </article>
+          <article class="rep-card">
+            <h3>Valdemir</h3>
+            <p><strong>Empresa:</strong> J. V Rodrigues &amp; CIA Ltda.</p>
+            <p><strong>Região de atendimento:</strong> Jucás, Cariús, Saboeiro, Antonina do Norte, Assaré, Altaneira, Ipaumirim, Baixio, Umari, Milagres, Abaiara, Pindoretama, Maranguape, Maracanaú, São Gonçalo do Amarante e Cascavel.</p>
+          </article>
+          <article class="rep-card">
+            <h3>Luiz Uchoa</h3>
+            <p><strong>Empresa:</strong> L. Alves Uchoa &amp; CIA Ltda.</p>
+            <p><strong>Região de atendimento:</strong> Região Norte de Iguatu e cidade de Quixelô – CE.</p>
+          </article>
+          <article class="rep-card">
+            <h3>Alberlan</h3>
+            <p><strong>Empresa:</strong> Alberlan G. Bezerra - ME</p>
+            <p><strong>Região de atendimento:</strong> Região Sul de Iguatu, Várzea Alegre e Icó – CE.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Fale com a Arroz Antunes</h2>
+            <p>Entre em contato para informações, pedidos, atendimento comercial e suporte. Estamos prontos para atender clientes e parceiros em diversas regiões do Ceará.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-light" href="https://wa.me/message/FG67FM3776U4G1" target="_blank">Chamar no WhatsApp</a>
+            <a class="btn btn-outline" style="border-color:white;color:white;" href="#produtos">Ver produtos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="section-head">
+          <h2>Central de atendimento</h2>
+          <p class="lead">Fale com a Arroz Antunes para informações, pedidos, atendimento comercial e suporte aos clientes e parceiros.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <span class="contact-highlight">Atendimento comercial</span>
+            <h3>Fale com nossa equipe</h3>
+            <div class="contact-list">
+              <span><strong>Telefone:</strong> (88) 3581-1142</span>
+              <span><strong>WhatsApp:</strong> <a href="https://wa.me/message/FG67FM3776U4G1" target="_blank">Atendimento direto</a></span>
+              <span><strong>E-mail:</strong> arrozcaseiro@terra.com.br</span>
+              <span><strong>Instagram:</strong> <a href="https://www.instagram.com/arrozantunesoficial?igsh=cDc3eXl6a3F1OThh" target="_blank">@arrozantunesoficial</a></span>
+              <span><strong>Endereço:</strong> Av. Sabino Antunes da Silva, n 50, Cohabs, Iguatu-CE, CEP: 63504-550</span>
+              <span><strong>Horário:</strong> Segunda a sexta das 07:00 às 17:00 • Sábado das 07:00 às 11:00</span>
+            </div>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="https://wa.me/message/FG67FM3776U4G1" target="_blank">Chamar no WhatsApp</a>
+              <a class="btn-secondary" href="mailto:arrozcaseiro@terra.com.br">Enviar e-mail</a>
+            </div>
+            <div class="contact-mini">
+              Atendimento para varejo, atacado, distribuidores, representantes e parceiros comerciais.
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <span class="contact-highlight">Acesso rápido</span>
+            <h3>Canais e links úteis</h3>
+            <div class="contact-list">
+              <a href="https://wa.me/message/FG67FM3776U4G1" target="_blank">Abrir WhatsApp</a>
+              <a href="mailto:arrozcaseiro@terra.com.br">Enviar e-mail</a>
+              <a href="https://www.instagram.com/arrozantunesoficial?igsh=cDc3eXl6a3F1OThh" target="_blank">Abrir Instagram</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Av.+Sabino+Antunes+da+Silva,+50,+Cohabs,+Iguatu-CE,+63504-550" target="_blank">Abrir localização</a>
+              <a href="#produtos">Conhecer produtos</a>
+              <a href="#representantes">Ver representantes</a>
+            </div>
+            <div class="contact-mini">
+              Entre em contato para conhecer nossos produtos, tirar dúvidas e falar com a empresa pelos canais oficiais.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft" id="galeria">
+  <div class="container">
+    <div class="section-head">
+      <h2>Galeria da empresa</h2>
+      <p class="lead">
+        Conheça um pouco da estrutura da Arroz Antunes, preparada para
+        beneficiamento, armazenamento e distribuição com eficiência.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-card">
+        <img src="PLANTA ATUAL ARROZ ANTUNES.jpg" alt="Equipamentos de beneficiamento de arroz" />
+      </div>
+
+      <div class="gallery-card">
+        <img src="Empresa .jpeg" alt="Estrutura da empresa Arroz Antunes" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <section id="localizacao">
+      <div class="container">
+        <div class="section-head">
+          <h2>Onde estamos</h2>
+          <p class="lead">Nossa unidade está localizada em Iguatu-CE, com estrutura preparada para beneficiamento e distribuição de arroz para diferentes regiões.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Endereço da empresa</h3>
+            <div class="contact-list">
+              <span><strong>Arroz Antunes</strong></span>
+              <span>Av. Sabino Antunes da Silva, n 50, Cohabs, Iguatu-CE</span>
+              <span>CEP: 63504-550</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Av.+Sabino+Antunes+da+Silva,+50,+Cohabs,+Iguatu-CE,+63504-550" target="_blank">Abrir no Google Maps</a>
+              <a href="https://wa.me/message/FG67FM3776U4G1" target="_blank">Falar no WhatsApp</a>
+            </div>
+          </div>
+          <div class="location-frame">
+            <iframe
+              src="https://www.google.com/maps?q=Av.%20Sabino%20Antunes%20da%20Silva,%2050,%20Cohabs,%20Iguatu-CE,%2063504-550&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Arroz Antunes</strong> • Beneficiamento e distribuição de arroz em Iguatu-CE</p>
+      <p><strong>Razão Social:</strong> Industria de Beneficiamento de Arroz Antunes Ltda.</p>
+      <p><strong>CNPJ:</strong> 23.448.848/0001-83</p>
+      <p>Telefone: (88) 3581-1142 • E-mail: arrozcaseiro@terra.com.br</p>
+      <p>Instagram: <a href="https://www.instagram.com/arrozantunesoficial?igsh=cDc3eXl6a3F1OThh" target="_blank">@arrozantunesoficial</a></p>
+      <p>Av. Sabino Antunes da Silva, n 50, Cohabs, Iguatu-CE • CEP: 63504-550</p>
+      <p>© 2026 Arroz Antunes. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a class="whats-float" href="https://wa.me/message/FG67FM3776U4G1" target="_blank" aria-label="Falar no WhatsApp">✆</a>
+</body>
+</html>
