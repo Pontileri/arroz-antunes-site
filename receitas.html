@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas | Arroz Antunes</title>
+  <meta name="description" content="Página de receitas da Arroz Antunes." />
+  <link rel="icon" type="image/png" href="Logo Arroz Antunes.png" />
+
+  <style>
+    :root {
+      --bg: #f5f8fc;
+      --card: #ffffff;
+      --text: #17304d;
+      --muted: #5d6f84;
+      --primary: #1e88e5;
+      --primary-dark: #145ea8;
+      --border: #dbe6f2;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      width: min(1100px, 94%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    .menu {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 760px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 40px 28px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eaf4ff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 12px 18px;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(30,136,229,0.07);
+    }
+
+    footer {
+      background: #10253d;
+      color: rgba(255,255,255,0.88);
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        justify-content: center;
+      }
+
+      .menu {
+        justify-content: center;
+      }
+
+      .card {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="Logo Arroz Antunes.png" alt="Arroz Antunes" />
+      </a>
+
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="index.html#produtos">Produtos</a>
+        <a href="receitas.html">Receitas</a>
+        <a href="index.html#empresa">Empresa</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="container">
+      <div class="card">
+        <span class="tag">Novidade em breve</span>
+        <h1>Página de Receitas</h1>
+        <p>
+          Estamos preparando um espaço especial com receitas e ideias deliciosas
+          para você aproveitar ainda mais os produtos da Arroz Antunes.
+        </p>
+        <p>
+          Em breve, esta página receberá conteúdos inspirados nas receitas
+          publicadas em nosso Instagram.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.instagram.com/arrozantunesoficial?igsh=cDc3eXl6a3F1OThh" target="_blank">Ver Instagram</a>
+          <a class="btn btn-outline" href="index.html">Voltar ao site</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Arroz Antunes. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
